@@ -10,7 +10,7 @@
       "es6",
       "dom.iterable"
     ],
-//    "outDir": "dist",
+    "outDir": "dist",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
 

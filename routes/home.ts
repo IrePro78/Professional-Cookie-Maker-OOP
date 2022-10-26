@@ -1,7 +1,9 @@
 import {Request, Response, Router} from "express";
 import {CookieMakerApp} from "../index";
+import {MyRouter} from "../types/my-router";
 
-export class HomeRouter {
+export class HomeRouter implements MyRouter{
+    public readonly urlPrefix: string = '/'
     public readonly router: Router = Router()
 
     constructor(public cmapp: CookieMakerApp,

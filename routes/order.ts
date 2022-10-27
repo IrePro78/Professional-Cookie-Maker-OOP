@@ -1,6 +1,7 @@
 import {Request, Response, Router} from 'express';
 import {CookieMakerApp} from "../index";
 import {MyRouter} from "../types/my-router";
+import {rest} from "../decorators/rest-decorator";
 
 export class OrderRouter implements MyRouter{
     public readonly urlPrefix: string = '/order';
@@ -15,7 +16,6 @@ export class OrderRouter implements MyRouter{
         this.router.get('/summary', this.sumary);
         this.router.get('/thanks', this.thanks);
     }
-
     private sumary = (req: Request, res: Response): void => {
         const {sum, addons, base, allBases, allAddons} = this.cmapp.getCookieSettings(req);
 

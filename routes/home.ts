@@ -1,23 +1,13 @@
-import {Request, Response, Router} from "express";
-import {CookieMakerApp} from "../index";
+import {Request, Response} from "express";
 import {MyRouter} from "../types/my-router";
-import {rest} from "../decorators/rest-decorator";
+import {get} from "../decorators/rest-decorator";
+import {BaseRouter} from "./base";
 
-export class HomeRouter implements MyRouter{
+export class HomeRouter extends BaseRouter implements MyRouter{
     public readonly urlPrefix: string = '/'
-    public readonly router: Router = Router()
 
-    constructor(public cmapp: CookieMakerApp,
 
-    ) {
-        this.setUpRoutes();
-    }
-
-    setUpRoutes(): void {
-        console.log(Reflect.get(this, '_restApiCalls'));
-
-    }
-    @rest('get', '/')
+    @get('/')
     home = (req: Request, res: Response): void => {
         const {sum, addons, base, allBases, allAddons} = this.cmapp.getCookieSettings(req);
 

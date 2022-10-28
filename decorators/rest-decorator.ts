@@ -13,7 +13,22 @@ export function rest(
             path,
             propertyName,
         })
-        // console.log(target, propertyName);
         Reflect.set(target, '_restApiCalls',  ar);
     };
+}
+
+export function get(path: string) {
+    return rest('get', path);
+}
+
+export function post(path: string) {
+    return rest('post', path);
+}
+
+export function remove(path: string) {
+    return rest('delete', path);
+}
+
+export function patch(path: string) {
+    return rest('patch', path);
 }
